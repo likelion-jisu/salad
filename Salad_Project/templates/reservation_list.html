@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>샐러드 예약 사이트</title>
+  </head>
+<body>
+    <h1>샐러드 예약 리스트</h1>
+    <div>
+        <p>------------------------------------</p>
+        {% for i in data %}
+            <p>_id: {{i._id}}</p>
+            <p>SALAD_CD: {{i.SALAD_CD}}</p>
+            <p>NAME: {{i.NAME}}</p>
+            <p>COMPANY_CD: {{i.COMPANY_CD}}</p>
+            <p>TEAM_NM: {{i.TEAM_NM}}</p>
+            <p>EMP_NUM: {{i.EMP_NUM}}</p>
+            <p>INPT_DT: {{i.INPT_DT}}</p>
+            <p>RECEIVE_YN: {{i.RECEIVE_YN}}</p>
+            <p>RECEIVE_DT: {{i.RECEIVE_DT}}</p>
+            <p>CANCEL_DT: {{i.CANCEL_DT}}</p>
+            <p>---------------</p>
+        {% endfor %}
+    </div>
+</body>
