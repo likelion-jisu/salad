@@ -1,3 +1,0 @@
-Flask
-Flask-MongoAlchemy
-Flask-WTF

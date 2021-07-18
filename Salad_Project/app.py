@@ -1,18 +1,13 @@
 from flask import Flask, render_template
 from pymongo import MongoClient
-app = Flask(__name__)
+from flask_cors import CORS
+from view import reservation
+
+app = Flask(__name__, static_url_path='/static')
+CORS(app)
+app.secure_key = 'salad reservation system secret key'
+
+app.register_blueprint(reservation.bp_salad, url_prefix='/salad')
 
 if __name__ == '__main__':
-    app.run(host='127.0.0.1',
-            port='5000')
-
-@app.route('/mongo',methods=['GET'])
-def mongoTest():
-    uri = "mongodb://localhost"
-    client = MongoClient(uri)
-    
-    db = client.saladDB
-    collection = db.reservation
-    results = collection.find()
-    client.close()
-    return render_template('reservation_list.html', data=results)
+    app.run(host='0.0.0.0', port='5000', debug=True)
